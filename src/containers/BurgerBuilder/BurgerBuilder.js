@@ -14,17 +14,15 @@ const INGREDIENT_PRICES = {
 }
 
 const BurgerBuilder = () => {
-  // Ingredients count
   const [ingredients, setIngredients] = useState({
     salad: 0,
     bacon: 0,
     cheese: 0,
     meat: 0
   })
-  // Price
   const [totalPrice, setTotalPrice] = useState(30)
-  // Purchasable
   const [purchasable, setPurchasable] = useState(false)
+  const [purchasing, setPurchasing] = useState(false)
 
   // Update purchasable when ingredient count changes
   useEffect(() => {
@@ -60,6 +58,18 @@ const BurgerBuilder = () => {
     setTotalPrice(totalPrice - INGREDIENT_PRICES[type])
   }
 
+  const purchaseHandler = () => {
+    setPurchasing(true)
+  }
+
+  const purchaseCancelHandler = () => {
+    setPurchasing(false)
+  }
+
+  const purchaseContinueHandler = () => {
+    alert('Bought!')
+  }
+
   const disabledInfo = {
     ...ingredients
   }
@@ -70,12 +80,17 @@ const BurgerBuilder = () => {
   return (
     <Aux>
       <Burger ingredients={ingredients} />
-      <Modal>
-        <OrderSummary ingredients={ingredients} />
+      <Modal show={purchasing} modalClosed={purchaseCancelHandler} >
+        <OrderSummary
+          ingredients={ingredients}
+          purchaseCancelled={purchaseCancelHandler}
+          purchaseContinued={purchaseContinueHandler}
+        />
       </Modal>
       <BuildControls
         ingredientAdded={addIngredientHandler}
         ingredientRemoved={removeIngredientHandler}
+        ordered={purchaseHandler}
         disabled={disabledInfo}
         price={totalPrice}
         purchasable={purchasable}
