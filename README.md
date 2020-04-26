@@ -18,5 +18,5 @@ npm install
 Run server:
 
 ```bash
-npm run # Server will begin on port 3000
+npm start # Server will begin on port 3000
 ```
