@@ -4,6 +4,7 @@ import Backdrop from '../../UI/Backdrop/Backdrop'
 import classes from './Modal.module.css'
 
 const Modal = (props) => {
+  console.log('Modal Updated')
   const { show, modalClosed } = props
   return (
     <Aux>

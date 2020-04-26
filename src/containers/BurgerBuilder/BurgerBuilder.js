@@ -85,6 +85,7 @@ const BurgerBuilder = () => {
           ingredients={ingredients}
           purchaseCancelled={purchaseCancelHandler}
           purchaseContinued={purchaseContinueHandler}
+          price={totalPrice}
         />
       </Modal>
       <BuildControls
