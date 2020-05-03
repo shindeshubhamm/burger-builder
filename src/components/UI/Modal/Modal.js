@@ -1,13 +1,14 @@
 import React from 'react'
-import Aux from '../../../hoc/Aux'
+import Aux from '../../../hoc/Aux/Aux'
 import Backdrop from '../../UI/Backdrop/Backdrop'
 import classes from './Modal.module.css'
 
 const Modal = (props) => {
-  console.log('Modal Updated')
   const { show, modalClosed } = props
+
   return (
     <Aux>
+      {console.log('modal updated')}
       <Backdrop show={show} clicked={modalClosed} />
       <div
         className={classes.Modal}
@@ -22,4 +23,5 @@ const Modal = (props) => {
   )
 }
 
+// Memo avoids re-rendering
 export default Modal

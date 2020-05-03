@@ -1,7 +1,7 @@
 import React from 'react'
 import Button from '../../UI/Button/Button'
 
-import Aux from '../../../hoc/Aux'
+import Aux from '../../../hoc/Aux/Aux'
 
 const OrderSummary = ({ ingredients, purchaseCancelled, purchaseContinued, price }) => {
   const ingredientSummary = Object.keys(ingredients)
