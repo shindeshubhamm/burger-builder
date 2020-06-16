@@ -8,7 +8,6 @@ const Modal = (props) => {
 
   return (
     <Aux>
-      {console.log('modal updated')}
       <Backdrop show={show} clicked={modalClosed} />
       <div
         className={classes.Modal}
